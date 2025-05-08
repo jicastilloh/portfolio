@@ -1,9 +1,9 @@
 <div class="h-screen grid grid-cols-1 lg:grid-cols-2 gap-4 items-center">
     <div class="px-10 md:px-16 lg:px-24 xl:px-32 text-center md:text-left space-y-4">
         <h1 class="text-center md:text-left text-2xl sm:text-4xl md:text-5xl font-bold">Contact Me</h1>
-        <hr class="w-48 h-1 my-4 mx-auto md:mx-0 bg-blue-500 border-0 rounded-sm md:my-5 dark:bg-blue-500">
+        <hr class="w-24 md:w-48 h-1 my-4 mx-auto md:mx-0 bg-blue-500 border-0 rounded-sm md:my-5 dark:bg-blue-500">
         <p class="text-sm md:text-md lg:text-lg xl:text-xl">
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Distinctio explicabo architecto vitae officia iste laborum labore, eum quia, illum placeat accusantium quae neque eius veritatis cumque assumenda qui. Eius delectus commodi ullam a obcaecati rerum, tenetur at sapiente natus fugit. Fuga sequi consequuntur architecto ad incidunt accusantium temporibus omnis, culpa voluptatum tenetur dolorem odio voluptates atque porro. Omnis aliquid error incidunt veritatis officia mollitia voluptates tenetur aperiam qui tempore! Esse, quisquam magnam, atque inventore quibusdam, ipsam quasi iste dolores aperiam minus optio! Distinctio nostrum dolor provident atque iusto perferendis cum voluptates deleniti accusantium pariatur deserunt, ipsum ad dolore odio ducimus?
+          Estoy a tu disposición para cualquier consulta profesional, propuesta de colaboración que desees compartir o si simplemente deseas saludar. Utiliza el formulario de contacto y me comunicaré contigo a la mayor brevedad posible. Espero tener la oportunidad de conectar contigo.
         </p>
         <div class="flex gap-8 justify-center md:justify-start">
             <a href="https://www.linkedin.com/in/junior-castillo-hern%C3%A1ndez-878a1718b/" target="_blank">
@@ -21,9 +21,9 @@
         <div class="card card-dash bg-base-300 w-full my-5 lg:my-0 hover:shadow-2xl hover:scale-105 lg:hover:scale-110 transition-transform duration-300">
           <form [formGroup]="contactForm" (ngSubmit)="onSubmit()">
             <div class="card-body space-y-4">
-              <h2 class="card-title text-sm md:text-md lg:text-lg xl:text-xl">Contact</h2>
+              <h2 class="card-title text-sm md:text-md lg:text-lg xl:text-xl">Escribe tu mensaje</h2>
               <div>
-                <label class="font-bold">Name</label>
+                <label class="font-bold">Nombre</label>
                 <input
                   type="text"
                   formControlName="name"
@@ -36,7 +36,7 @@
               }
               </div>
               <div>
-                <label class="font-bold">Email</label>
+                <label class="font-bold">Correo</label>
                 <input
                   type="email"
                   formControlName="email"
@@ -49,7 +49,7 @@
               }
               </div>
               <div>
-                <label class="font-bold">Message</label>
+                <label class="font-bold">Mensaje</label>
                 <textarea
                   formControlName="message"
                   class="w-full rounded-md py-10 px-2 ring-1 ring-inset ring-gray-400 focus:text-white"
@@ -65,7 +65,7 @@
                   type="submit"
                   class="btn w-full hover:shadow-2xl transition-transform duration-300 hover:bg-blue-500 hover:text-base-100 hover:font-bold"
                 >
-                  SEND MESSAGE
+                  ENVIAR MENSAJE
                 </button>
               </div>
             </div>
@@ -75,7 +75,7 @@
               <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 shrink-0 stroke-current" fill="none" viewBox="0 0 24 24">
                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
               </svg>
-              <span>Message sent successfully! 😁</span>
+              <span>¡Mensaje enviado! 😁</span>
             </div>
           }
           @if (messageErrorSend()) {
@@ -83,7 +83,7 @@
               <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 shrink-0 stroke-current" fill="none" viewBox="0 0 24 24">
                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 14l2-2m0 0l2-2m-2 2l-2-2m2 2l2 2m7-2a9 9 0 11-18 0 9 9 0 0118 0z" />
               </svg>
-              <span>Error sending message ☹️.</span>
+              <span>Ocurrió un error al enviar el mensaje ☹️.</span>
             </div>
           }
         </div>
