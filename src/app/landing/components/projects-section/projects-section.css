@@ -1,0 +1,7 @@
+img:hover {
+    box-shadow: 0 0 10px #113162; /* Sombra uniforme en todas las direcciones */
+}
+button:hover {
+    border: none;
+    box-shadow: 0 0 10px #113162; /* Sombra uniforme en todas las direcciones */
+}

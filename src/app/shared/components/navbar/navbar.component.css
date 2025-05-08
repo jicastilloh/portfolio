@@ -1,0 +1,4 @@
+ul li:hover {
+    border-radius: 10px;
+    z-index: 10;
+}
