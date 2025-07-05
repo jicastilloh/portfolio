@@ -8,51 +8,36 @@
     class="w-24 md:w-48 h-1 my-4 mx-auto md:mx-0 bg-blue-500 border-0 rounded-sm md:my-5 dark:bg-blue-500"
   />
   <div class="items-center grid grid-cols-1 md:grid-cols-2 gap-8">
-    <div class="justify-items-center col-span-1 col-start-1">
+    <div
+      *ngFor="let project of projects(); let i = index"
+      [ngClass]="{
+        'col-start-1': i % 2 === 0,
+        'md:col-start-2': i % 2 !== 0
+      }"
+      class="justify-items-center"
+    >
       <div
         class="hover:shadow-2xl hover:scale-110 transition-transform duration-300 border-t-2 border-blue-500 h-70 card w-[90%] bg-base-300 card-xs md:card-sm lg:card-md shadow-sm"
       >
         <div class="card-body p-6 xl:p-8 items-center">
           <div class="justify-items-start lg:justify-items-center">
             <h2 class="card-title">
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                width="24"
-                height="24"
-                viewBox="0 0 24 24"
-              >
-                <path
-                  fill="none"
-                  stroke="currentColor"
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                  stroke-width="2"
-                  d="m8 8l-4 4l4 4m8 0l4-4l-4-4m-2-3l-4 14"
-                />
-              </svg>
-              E-Commerce
+              {{ project.title }}
             </h2>
             <hr
               class="hidden lg:block w-24 h-1 my-4 mx-auto md:mx-0 bg-blue-500 border-0 rounded-sm md:my-5 dark:bg-blue-500"
             />
           </div>
-          <p>
-            Este proyecto es una
-            <strong>aplicación de comercio electrónico</strong> desarrollada con
-            <strong>Angular</strong>, diseñada para ofrecer una experiencia de
-            usuario moderna y responsiva. La aplicación incluye funcionalidades
-            como la visualización de productos, navegación por categorías, y una
-            página de detalles del producto.
-          </p>
+          <p>{{ project.description }}</p>
           <div class="card-actions w-full grid grid-cols-2 gap-2">
-            <a
-              onclick="my_modal_5.showModal()"
+            <button
               class="btn w-full hover:shadow-2xl transition-transform duration-300 hover:bg-blue-500 hover:text-base-100 hover:font-bold"
+              (click)="openModal(project)"
             >
               Descripción
-            </a>
+            </button>
             <a
-              href="https://jicastilloh.github.io/ecommerce/ecommerce"
+              [href]="project.visitLink"
               target="_blank"
               class="btn w-full hover:shadow-2xl transition-transform duration-300 hover:bg-blue-500 hover:text-base-100 hover:font-bold"
             >
@@ -62,146 +47,50 @@
         </div>
       </div>
     </div>
-    <div class="justify-items-center col-span-1 col-start-1 md:col-start-2">
-      <div
-        class="hover:shadow-2xl hover:scale-110 transition-transform duration-300 border-t-2 border-blue-500 h-70 card w-[90%] bg-base-300 card-xs md:card-sm lg:card-md shadow-sm"
-      >
-        <div class="card-body p-6 xl:p-8 items-center">
-          <div class="justify-items-start lg:justify-items-center">
-            <h2 class="card-title">
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                width="24"
-                height="24"
-                viewBox="0 0 24 24"
-              >
-                <path
-                  fill="none"
-                  stroke="currentColor"
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                  stroke-width="2"
-                  d="m8 8l-4 4l4 4m8 0l4-4l-4-4m-2-3l-4 14"
-                />
-              </svg>
-              Proyecto #
-            </h2>
-            <hr
-              class="hidden lg:block w-24 h-1 my-4 mx-auto md:mx-0 bg-blue-500 border-0 rounded-sm md:my-5 dark:bg-blue-500"
-            />
-          </div>
-          <p>
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Itaque
-            dolorum quidem debitis nam saepe nemo dolor sint amet. Quaerat
-            blanditiis ex velit enim cum numquam repellendus corrupti alias
-            atque facere!
-          </p>
-          <div class="card-actions w-full grid grid-cols-2 gap-2">
-            <a
-              class="btn w-full hover:shadow-2xl transition-transform duration-300 hover:bg-blue-500 hover:text-base-100 hover:font-bold"
-            >
-              Descripción
-            </a>
-            <a href="#" class="btn w-full hover:shadow-2xl transition-transform duration-300 hover:bg-blue-500 hover:text-base-100 hover:font-bold">Visitar</a>
-          </div>
-        </div>
-      </div>
-    </div>
-    <div class="justify-items-center col-span-1 col-start-1 md:col-start-1">
-      <div
-        class="hover:shadow-2xl hover:scale-110 transition-transform duration-300 border-t-2 border-blue-500 h-70 card w-[90%] bg-base-300 card-xs md:card-sm lg:card-md shadow-sm"
-      >
-        <div class="card-body p-6 xl:p-8 items-center">
-          <div class="justify-items-start lg:justify-items-center">
-            <h2 class="card-title">
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                width="24"
-                height="24"
-                viewBox="0 0 24 24"
-              >
-                <path
-                  fill="none"
-                  stroke="currentColor"
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                  stroke-width="2"
-                  d="m8 8l-4 4l4 4m8 0l4-4l-4-4m-2-3l-4 14"
-                />
-              </svg>
-              Proyecto #
-            </h2>
-            <hr
-              class="hidden lg:block w-24 h-1 my-4 mx-auto md:mx-0 bg-blue-500 border-0 rounded-sm md:my-5 dark:bg-blue-500"
-            />
-          </div>
-          <p>
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Itaque
-            dolorum quidem debitis nam saepe nemo dolor sint amet. Quaerat
-            blanditiis ex velit enim cum numquam repellendus corrupti alias
-            atque facere!
-          </p>
-          <div class="card-actions w-full grid grid-cols-2 gap-2">
-            <a
-              class="btn w-full hover:shadow-2xl transition-transform duration-300 hover:bg-blue-500 hover:text-base-100 hover:font-bold"
-            >
-              Descripción
-            </a>
-            <a href="#" class="btn w-full hover:shadow-2xl transition-transform duration-300 hover:bg-blue-500 hover:text-base-100 hover:font-bold">Visitar</a>
-          </div>
-        </div>
-      </div>
-    </div>
-    <div class="justify-items-center col-span-1 col-start-1 md:col-start-2">
-      <div
-        class="hover:shadow-2xl hover:scale-110 transition-transform duration-300 border-t-2 border-blue-500 h-70 card w-[90%] bg-base-300 card-xs md:card-sm lg:card-md shadow-sm"
-      >
-        <div class="card-body p-6 xl:p-8 items-center">
-          <div class="justify-items-start lg:justify-items-center">
-            <h2 class="card-title">
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                width="24"
-                height="24"
-                viewBox="0 0 24 24"
-              >
-                <path
-                  fill="none"
-                  stroke="currentColor"
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                  stroke-width="2"
-                  d="m8 8l-4 4l4 4m8 0l4-4l-4-4m-2-3l-4 14"
-                />
-              </svg>
-              Proyecto #
-            </h2>
-            <hr
-              class="hidden lg:block w-24 h-1 my-4 mx-auto md:mx-0 bg-blue-500 border-0 rounded-sm md:my-5 dark:bg-blue-500"
-            />
-          </div>
-          <p>
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Itaque
-            dolorum quidem debitis nam saepe nemo dolor sint amet. Quaerat
-            blanditiis ex velit enim cum numquam repellendus corrupti alias
-            atque facere!
-          </p>
-          <div class="card-actions w-full grid grid-cols-2 gap-2">
-            <a
-              class="btn w-full hover:shadow-2xl transition-transform duration-300 hover:bg-blue-500 hover:text-base-100 hover:font-bold"
-            >
-              Descripción
-            </a>
-            <a href="#" class="btn w-full hover:shadow-2xl transition-transform duration-300 hover:bg-blue-500 hover:text-base-100 hover:font-bold">Visitar</a>
-          </div>
-        </div>
-      </div>
-    </div>
   </div>
 </div>
 
-<!-- Open the modal using ID.showModal() method -->
+<!-- Modal dinámico -->
 <dialog id="my_modal_5" class="modal modal-bottom sm:modal-middle">
+  <div class="modal-box">
+    <form method="dialog">
+      <button
+        class="btn btn-sm btn-circle btn-ghost absolute right-2 top-2"
+        (click)="closeModal()"
+      >
+        ✕
+      </button>
+    </form>
+    <section *ngIf="selectedProject">
+      <h1 class="text-xl font-bold">{{ selectedProject.title }}</h1>
+      <p class="mt-2">{{ selectedProject.description }}</p>
+
+      <h2 class="text-lg font-bold mt-4">Tecnologías utilizadas</h2>
+      <ul class="list-disc ml-5">
+        <li *ngFor="let tech of selectedProject.technologies">
+          {{ tech }}
+        </li>
+      </ul>
+
+      <h2 class="text-lg font-bold mt-4">Características principales</h2>
+      <ul class="list-disc ml-5">
+        <li *ngFor="let feature of selectedProject.features">
+          {{ feature }}
+        </li>
+      </ul>
+
+      <h2 class="text-lg font-bold mt-4">Estructura del proyecto</h2>
+      <ul class="list-disc ml-5">
+        <li *ngFor="let item of selectedProject.structure">
+          {{ item }}
+        </li>
+      </ul>
+    </section>
+  </div>
+</dialog>
+
+<!-- Open the modal using ID.showModal() method -->
+<!-- <dialog id="my_modal_5" class="modal modal-bottom sm:modal-middle">
   <div class="modal-box">
     <form method="dialog">
       <button class="btn btn-sm btn-circle btn-ghost absolute right-2 top-2">
@@ -346,4 +235,4 @@
       </ul>
     </section>
   </div>
-</dialog>
+</dialog> -->

@@ -1,0 +1,100 @@
+[
+  {
+    "id": "ecommerce",
+    "title": "E-Commerce",
+    "description": "Este proyecto es una aplicación de comercio electrónico desarrollada con Angular, diseñada para ofrecer una experiencia de usuario moderna y responsiva. La aplicación incluye funcionalidades como la visualización de productos, navegación por categorías, y una página de detalles del producto.",
+    "technologies": [
+      "Angular",
+      "RxJS",
+      "Tailwind CSS",
+      "DaisyUI",
+      "API REST",
+      "TypeScript",
+      "HTML y CSS",
+      "Angular Signals"
+    ],
+    "features": [
+      "Página de inicio: Muestra productos destacados y categorías principales.",
+      "Navegación por categorías: Los usuarios pueden filtrar productos por categorías específicas.",
+      "Paginación: Implementada para manejar grandes listas de productos de manera eficiente.",
+      "Página de detalles del producto: Muestra información detallada de un producto seleccionado.",
+      "Rutas dinámicas: Uso de parámetros en las rutas para manejar la navegación hacia páginas específicas.",
+      "Diseño responsivo: Optimizado para dispositivos móviles, tablets y pantallas grandes."
+    ],
+    "structure": [
+      "Layouts: Componentes compartidos como el encabezado, pie de página y contenedores principales.",
+      "Pages: Componentes de páginas principales como ProductsPageComponent y ProductInfoPageComponent.",
+      "Components: Componentes reutilizables como CategoriesListComponent, BestSellingProductsInfoComponent, y CategoriesCardComponent.",
+      "Services: Servicios como ProductsService y CategoriesService para manejar la comunicación con la API REST."
+    ],
+    "visitLink": "https://jicastilloh.github.io/ecommerce/ecommerce",
+    "images": []
+  },
+  {
+    "id": "ecommerce_and_analytic",
+    "title": "Infraestructura de E-Commerce y Analítica",
+    "description": "La arquitectura propuesta para la plataforma de e-commerce en Azure se ha diseñado con un enfoque en la escalabilidad, rendimiento y modularidad. Se basa en el uso de servicios gestionados de Azure. Se divide en capas lógicas que manejan la presentación, la lógica de negocio, la persistencia de datos, el procesamiento asíncrono y la inteligencia de negocio.",
+    "technologies": [
+      "Azure App Service Plan",
+      "Azure App Service",
+      "Azure PostgreSQL Server",
+      "Azure Blob Storage",
+      "Azure Service Bus Queue",
+      "Azure Functions",
+      "Azure SQL Data Warehouse",
+      "Azure Synapse Analytics",
+      "Azure Data Factory"
+    ],
+    "features": [
+      "Portal de Usuario (Frontoffice): UI principal para clientes, navegación de productos, proceso de compra, gestión de cuentas de usuario.",
+      "Portal de Administradores (Backoffice): UI administrativa para gestión de productos, inventario, pedidos y usuarios por personal interno.",
+      "API RESTful: Lógica de negocio, exposición de endpoints para interacción con servicios de datos, validación, autorización y lógica de negocio principal para transacciones.",
+      "Base de Datos Transaccional: Almacenamiento de datos operacionales y transaccionales en tiempo real (productos, pedidos, clientes).",
+      "Almacenamiento de Contenido Estático: Almacenamiento de archivos no estructurados y estáticos (imágenes, videos, documentos).",
+      "Procesamiento de Tareas en Segundo Plano: Ejecución de tareas intensivas o de larga duración sin bloquear la UI (confirmación de pedidos, actualización de inventarios, notificaciones masivas).",
+      "Datawarehouse para Analítica: Repositorio centralizado para análisis de grandes volúmenes de datos históricos y transaccionales, generación de informes.",
+      "Herramienta ETL: Gestión del flujo de datos (Extracción, Transformación y Carga) entre la base de datos transaccional y el Data Warehouse."
+    ],
+    "structure": [
+      "Capa de Presentación: Portal de Usuario (FrontOffice) y Portal de Backoffice.",
+      "Capa de Lógica de Negocio: API RESTful.",
+      "Capa de Datos Operacionales: Base de datos transaccional y almacenamiento de contenido estático.",
+      "Capa de Procesamiento Asíncrono: Servicios de mensajería y computación sin servidor para tareas en segundo plano.",
+      "Capa de Analítica y BI: Consolidación y análisis de datos para la toma de decisiones."
+    ],
+    "visitLink": "/project/ecommerce_and_analytic",
+    "images": [
+      "ecommerce_and_analytic_infrastructure.jpg",
+      "provides_and_rg.png",
+      "webapps1.png",
+      "webapps2.png",
+      "webapps3.png",
+      "db.png",
+      "storage1.png",
+      "storage2.png",
+      "storage3.png",
+      "analytics1.png",
+      "analytics2.png"
+    ]
+  },
+  {
+    "id": "project3",
+    "title": "Proyecto #",
+    "description": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Itaque dolorum quidem debitis nam saepe nemo dolor sint amet. Quaerat blanditiis ex velit enim cum numquam repellendus corrupti alias atque facere!",
+    "technologies": [],
+    "features": [],
+    "structure": [],
+    "visitLink": "#",
+    "images": []
+  },
+  {
+    "id": "project4",
+    "title": "Proyecto #",
+    "description": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Itaque dolorum quidem debitis nam saepe nemo dolor sint amet. Quaerat blanditiis ex velit enim cum numquam repellendus corrupti alias atque facere!",
+    "technologies": [],
+    "features": [],
+    "structure": [],
+    "visitLink": "#",
+    "images": []
+  }
+]

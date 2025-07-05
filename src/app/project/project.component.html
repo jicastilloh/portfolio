@@ -1,0 +1,74 @@
+<div class="h-full md:h-screen py-20 px-5 md:px-20">
+<div *ngIf="selectedProject; else notFound" class="p-5 md:p-10">
+  <!-- Título del proyecto -->
+  <h1 class="text-3xl md:text-5xl font-bold text-center mb-6">
+    {{ selectedProject.title }}
+  </h1>
+
+  <!-- Descripción -->
+  <p class="text-lg md:text-xl text-center mb-10">
+    {{ selectedProject.description }}
+  </p>
+
+  <!-- Galería de imágenes -->
+  <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 mb-10">
+    <img
+      *ngFor="let image of selectedProject.images"
+      [src]="'assets/projects/' + selectedProject.id + '/' + image"
+      alt="{{ selectedProject.title }}"
+      class="rounded-lg shadow-md hover:shadow-xl transition-shadow duration-300"
+    />
+  </div>
+
+  <!-- Tecnologías utilizadas -->
+  <div class="mb-10">
+    <h2 class="text-2xl font-semibold mb-4">Tecnologías utilizadas</h2>
+    <ul class="list-disc ml-5">
+      <li *ngFor="let tech of selectedProject.technologies">
+        {{ tech }}
+      </li>
+    </ul>
+  </div>
+
+  <!-- Características principales -->
+  <div class="mb-10">
+    <h2 class="text-2xl font-semibold mb-4">Características principales</h2>
+    <ul class="list-disc ml-5">
+      <li *ngFor="let feature of selectedProject.features">
+        {{ feature }}
+      </li>
+    </ul>
+  </div>
+
+  <!-- Estructura del proyecto -->
+  <div class="mb-10">
+    <h2 class="text-2xl font-semibold mb-4">Estructura del proyecto</h2>
+    <ul class="list-disc ml-5">
+      <li *ngFor="let item of selectedProject.structure">
+        {{ item }}
+      </li>
+    </ul>
+  </div>
+
+  <!-- Botón para visitar el proyecto -->
+  <!-- <div class="text-center">
+    <a
+      [href]="selectedProject.visitLink"
+      target="_blank"
+      class="btn btn-primary px-6 py-3 text-lg font-semibold rounded-lg shadow-md hover:shadow-lg transition-shadow duration-300"
+    >
+      Visitar Proyecto
+    </a>
+  </div> -->
+</div>
+
+<!-- Mensaje si no se encuentra el proyecto -->
+<ng-template #notFound>
+  <div class="text-center p-10">
+    <h1 class="text-3xl font-bold text-red-500">Proyecto no encontrado</h1>
+    <p class="text-lg text-gray-600 mt-4">
+      Lo sentimos, no pudimos encontrar el proyecto que estás buscando.
+    </p>
+  </div>
+</ng-template>
+</div>

@@ -8,14 +8,7 @@ import { ContactSectionComponent } from './landing/components/contact-section/co
 
 @Component({
   selector: 'app-root',
-  imports: [
-    RouterOutlet,
-    NavbarComponent,
-    HomeSectionComponent,
-    AboutMeSectionComponent,
-    ProjectsSectionComponent,
-    ContactSectionComponent,
-  ],
+  imports: [RouterOutlet, NavbarComponent],
   templateUrl: './app.component.html',
   styleUrl: './app.component.css',
 })
