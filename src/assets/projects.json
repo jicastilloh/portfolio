@@ -1,34 +1,59 @@
 [
   {
-    "id": "ecommerce",
-    "title": "E-Commerce",
-    "description": "Este proyecto es una aplicación de comercio electrónico desarrollada con Angular, diseñada para ofrecer una experiencia de usuario moderna y responsiva. La aplicación incluye funcionalidades como la visualización de productos, navegación por categorías, y una página de detalles del producto.",
+    "id": "data_pipeline_api",
+    "title": "Creación de un Pipeline de Datos y API con Caché Inteligente",
+    "description": "Solución integral de backend diseñada para la migración de datos a gran escala, exposición segura y optimizada a través de una API RESTful, y despliegue en un entorno de nube productivo. Incluye un sistema de monitoreo de rendimiento y una estrategia de caché inteligente con invalidación automática para asegurar la coherencia y eficiencia de los datos.",
     "technologies": [
-      "Angular",
-      "RxJS",
-      "Tailwind CSS",
-      "DaisyUI",
-      "API REST",
-      "TypeScript",
-      "HTML y CSS",
-      "Angular Signals"
+      "Azure Resource Group",
+      "Azure Storage Account",
+      "Azure Storage Container",
+      "Azure SQL Server",
+      "Azure SQL Database",
+      "Azure Data Factory",
+      "Azure Container Registry",
+      "Azure App Service Plan",
+      "Azure App Service",
+      "Azure Azure Insights",
+      "Azure Cache for Redis"
     ],
     "features": [
-      "Página de inicio: Muestra productos destacados y categorías principales.",
-      "Navegación por categorías: Los usuarios pueden filtrar productos por categorías específicas.",
-      "Paginación: Implementada para manejar grandes listas de productos de manera eficiente.",
-      "Página de detalles del producto: Muestra información detallada de un producto seleccionado.",
-      "Rutas dinámicas: Uso de parámetros en las rutas para manejar la navegación hacia páginas específicas.",
-      "Diseño responsivo: Optimizado para dispositivos móviles, tablets y pantallas grandes."
+      "Selección y Migración de Dataset desde Kaggle a Azure Blob Storage.",
+      "Pipeline ETL con Azure Data Factory para extraer, transformar y cargar datos a Azure SQL Database.",
+      "Desarrollo de API RESTful para interacción con la base de datos, incluyendo autenticación y autorización (JWT).",
+      "Implementación de un sistema de caché inteligente con Redis para optimizar el rendimiento de la API.",
+      "Monitoreo de rendimiento de la API y el caché con Azure Monitor.",
+      "Containerización de la aplicación API con Docker.",
+      "Despliegue de la aplicación en la nube utilizando Azure App Service a través de Azure Container Registry."
     ],
     "structure": [
-      "Layouts: Componentes compartidos como el encabezado, pie de página y contenedores principales.",
-      "Pages: Componentes de páginas principales como ProductsPageComponent y ProductInfoPageComponent.",
-      "Components: Componentes reutilizables como CategoriesListComponent, BestSellingProductsInfoComponent, y CategoriesCardComponent.",
-      "Services: Servicios como ProductsService y CategoriesService para manejar la comunicación con la API REST."
+      "Capa de Transformación de Datos: Maneja la extracción y carga inicial de datos.",
+      "Capa de Persistencia de Datos: Almacenamiento de la base de datos transaccional.",
+      "Capa de API y Lógica de Negocio: Expone los datos y maneja las operaciones de la aplicación.",
+      "Capa de Caché: Optimización del acceso a datos para la API.",
+      "Capa de Monitoreo: Supervisión del rendimiento de la aplicación y el caché.",
+      "Capa de Despliegue y Contenerización: Empaquetado y publicación de la aplicación en la nube."
     ],
-    "visitLink": "https://jicastilloh.github.io/ecommerce/ecommerce",
-    "images": []
+    "visitLink": "/project/data_pipeline_api",
+    "images": [
+      "saccount.png",
+      "linked_services.png",
+      "datasets.png",
+      "pipeline.png",
+      "firebase_auth.png",
+      "entity_users.png",
+      "endpoints_auth_login.png",
+      "catalog.png",
+      "insights.png",
+      "metrics.png",
+      "metrics_2.png",
+      "redis_conf.png",
+      "redis_services.png",
+      "query_response.png",
+      "query_response_redis.png",
+      "dockerfile.png",
+      "console_redis.png",
+      "azure_acr.png"
+    ]
   },
   {
     "id": "ecommerce_and_analytic",
@@ -62,7 +87,7 @@
       "Capa de Procesamiento Asíncrono: Servicios de mensajería y computación sin servidor para tareas en segundo plano.",
       "Capa de Analítica y BI: Consolidación y análisis de datos para la toma de decisiones."
     ],
-    "visitLink": "/portfolio/project/ecommerce_and_analytic",
+    "visitLink": "/project/ecommerce_and_analytic",
     "images": [
       "ecommerce_and_analytic_infrastructure.jpg",
       "provides_and_rg.png",
@@ -78,23 +103,34 @@
     ]
   },
   {
-    "id": "project3",
-    "title": "Proyecto #",
-    "description": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Itaque dolorum quidem debitis nam saepe nemo dolor sint amet. Quaerat blanditiis ex velit enim cum numquam repellendus corrupti alias atque facere!",
-    "technologies": [],
-    "features": [],
-    "structure": [],
-    "visitLink": "#",
-    "images": []
-  },
-  {
-    "id": "project4",
-    "title": "Proyecto #",
-    "description": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Itaque dolorum quidem debitis nam saepe nemo dolor sint amet. Quaerat blanditiis ex velit enim cum numquam repellendus corrupti alias atque facere!",
-    "technologies": [],
-    "features": [],
-    "structure": [],
-    "visitLink": "#",
+    "id": "ecommerce",
+    "title": "E-Commerce",
+    "description": "Este proyecto es una aplicación de comercio electrónico desarrollada con Angular, diseñada para ofrecer una experiencia de usuario moderna y responsiva. La aplicación incluye funcionalidades como la visualización de productos, navegación por categorías, y una página de detalles del producto.",
+    "technologies": [
+      "Angular",
+      "RxJS",
+      "Tailwind CSS",
+      "DaisyUI",
+      "API REST",
+      "TypeScript",
+      "HTML y CSS",
+      "Angular Signals"
+    ],
+    "features": [
+      "Página de inicio: Muestra productos destacados y categorías principales.",
+      "Navegación por categorías: Los usuarios pueden filtrar productos por categorías específicas.",
+      "Paginación: Implementada para manejar grandes listas de productos de manera eficiente.",
+      "Página de detalles del producto: Muestra información detallada de un producto seleccionado.",
+      "Rutas dinámicas: Uso de parámetros en las rutas para manejar la navegación hacia páginas específicas.",
+      "Diseño responsivo: Optimizado para dispositivos móviles, tablets y pantallas grandes."
+    ],
+    "structure": [
+      "Layouts: Componentes compartidos como el encabezado, pie de página y contenedores principales.",
+      "Pages: Componentes de páginas principales como ProductsPageComponent y ProductInfoPageComponent.",
+      "Components: Componentes reutilizables como CategoriesListComponent, BestSellingProductsInfoComponent, y CategoriesCardComponent.",
+      "Services: Servicios como ProductsService y CategoriesService para manejar la comunicación con la API REST."
+    ],
+    "visitLink": "https://jicastilloh.github.io/ecommerce/ecommerce",
     "images": []
   }
 ]

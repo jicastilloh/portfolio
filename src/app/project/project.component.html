@@ -16,7 +16,8 @@
       *ngFor="let image of selectedProject.images"
       [src]="'assets/projects/' + selectedProject.id + '/' + image"
       alt="{{ selectedProject.title }}"
-      class="rounded-lg shadow-md hover:shadow-xl transition-shadow duration-300"
+      class="rounded-lg shadow-md hover:shadow-xl transition-shadow duration-300 w-full h-64 object-contain"
+      style="background-color: rgba(255,255,255,0.1);"
     />
   </div>
 
