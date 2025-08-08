@@ -51,6 +51,18 @@
     </ul>
   </div>
 
+  <!-- Enlaces a repositorios -->
+  <div class="mb-10">
+    <h2 class="text-2xl font-semibold mb-4">Repositorios</h2>
+    <ul class="list-disc ml-5">
+      <li *ngFor="let repo of selectedProject.repositories">
+          <a [href]="repo.link" target="_blank">
+          {{ repo.name }}
+          </a>
+      </li>
+    </ul>
+  </div>
+
   <!-- Botón para visitar el proyecto -->
   <!-- <div class="text-center">
     <a

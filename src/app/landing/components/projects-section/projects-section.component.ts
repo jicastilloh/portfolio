@@ -23,12 +23,12 @@ export class ProjectsSectionComponent {
 
   openModal(project: any): void {
     this.selectedProject = project;
-    const modal: any = document.getElementById('my_modal_5');
+    const modal: any = document.getElementById('modal_description');
     modal?.showModal();
   }
 
   closeModal(): void {
-    const modal: any = document.getElementById('my_modal_5');
+    const modal: any = document.getElementById('modal_description');
     modal?.close();
   }
 }

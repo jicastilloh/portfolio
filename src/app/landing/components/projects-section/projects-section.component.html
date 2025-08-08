@@ -51,7 +51,7 @@
 </div>
 
 <!-- Modal dinámico -->
-<dialog id="my_modal_5" class="modal modal-bottom sm:modal-middle">
+<dialog id="modal_description" class="modal modal-bottom sm:modal-middle">
   <div class="modal-box">
     <form method="dialog">
       <button
@@ -85,12 +85,21 @@
           {{ item }}
         </li>
       </ul>
+
+      <h2 class="text-lg font-bold mt-4">Enlaces a repositorios</h2>
+      <ul class="list-disc ml-5">
+        <li *ngFor="let repo of selectedProject.repositories">
+            <a [href]="repo.link" target="_blank">
+            {{ repo.name }}
+            </a>
+        </li>
+      </ul>
     </section>
   </div>
 </dialog>
 
 <!-- Open the modal using ID.showModal() method -->
-<!-- <dialog id="my_modal_5" class="modal modal-bottom sm:modal-middle">
+<!-- <dialog id="modal_description" class="modal modal-bottom sm:modal-middle">
   <div class="modal-box">
     <form method="dialog">
       <button class="btn btn-sm btn-circle btn-ghost absolute right-2 top-2">

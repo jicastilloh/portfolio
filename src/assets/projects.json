@@ -1,5 +1,71 @@
 [
   {
+    "id": "report_generator_poke",
+    "title": "Generador de Reportes de Pokémons",
+    "description": "Desarrollo de aplicación web para la generación de reportes CSV. Permite a los usuarios solicitar y gestionar la creación de reportes basados en datos de una API externa (PokeAPI) y de un backofficce desarrollado con FastApi. La Azure Function se encarga de las tareas en segundo plano, como el enriquecimiento de datos y el muestreo aleatorio. La aplicación fue diseñada y desplegada en un entorno de nube.",
+    "technologies": [
+      "Next.js (React)",
+      "FastAPI (Python)",
+      "Azure App Service",
+      "Azure Functions (Python Queue Trigger)",
+      "Azure SQL Database",
+      "Azure Blob Storage",
+      "Azure Queue Storage",
+      "PokeAPI",
+      "Terraform",
+      "Docker"
+    ],
+    "features": [
+      "Gestión Integral de Reportes: Implementación de una interfaz de usuario y un backend para la creación, visualización y eliminación completa de reportes, asegurando la consistencia entre la base de datos y el almacenamiento de archivos.",
+      "Enriquecimiento de Datos de Reporte: Capacidad para obtener y agregar información detallada (estadísticas y habilidades) de cada Pokémon a los reportes CSV, realizando llamadas dinámicas a la PokeAPI durante el proceso de generación.",
+      "Muestreo Aleatorio de Registros: Funcionalidad que permite a los usuarios especificar un tamaño de muestra para incluir un subconjunto aleatorio de datos en los reportes generados, optimizando la flexibilidad y el rendimiento."
+    ],
+    "structure": [
+      "Capa de Presentación (Frontend): Desarrollada con Next.js (React) para una interfaz de usuario moderna y reactiva, permitiendo a los usuarios interactuar con las funcionalidades del generador de reportes.",
+      "Capa de API (Backend): Construida con FastAPI en Python, desplegada en Azure App Service, que expone los endpoints para la creación, gestión y eliminación de reportes, y orquesta la lógica de negocio.",
+      "Capa de Procesamiento Asíncrono: Utiliza Azure Functions con un Queue Trigger para manejar la lógica intensiva de generación y enriquecimiento de reportes en segundo plano, desacoplando el proceso de la API principal.",
+      "Capa de Persistencia de Datos: Compuesta por Azure SQL Database para el almacenamiento estructurado de metadatos de reportes y Azure Blob Storage para el almacenamiento de los archivos CSV generados.",
+      "Capa de Mensajería: Implementación de Azure Queue Storage para la comunicación asíncrona entre la API y las Azure Functions, facilitando el procesamiento de tareas en cola.",
+      "Capa de Infraestructura como Código: Gestión y aprovisionamiento de todos los recursos de Azure mediante Terraform, asegurando la reproducibilidad y automatización del despliegue."
+    ],
+    "visitLink": "/project/report_generator_poke",
+    "repositories": [
+      {
+        "name": "UI (NextJs)",
+        "link": "https://github.com/jicastilloh/poke_ui.git"
+      },
+      {
+        "name": "API (FastAPI)",
+        "link": "https://github.com/jicastilloh/poke_api.git"
+      },
+      {
+        "name": "Azure Function (Python)",
+        "link": "https://github.com/jicastilloh/poke_queue_function.git"
+      },
+      {
+        "name": "Definición de Infraestructura (Terraform)",
+        "link": "https://github.com/jicastilloh/terraform_project_poke.git"
+      },
+      {
+        "name": "Scripts SQL",
+        "link": "https://github.com/jicastilloh/poke_scripts_sql.git"
+      }
+    ],
+    "images": [
+      "1_ui.png",
+      "2_sent_request.png",
+      "3_completed.png",
+      "4_delete.png",
+      "5_report.png",
+      "6_queue_blob.png",
+      "7_api_controllers.png",
+      "8_azfunction.png",
+      "9_webapps_storages.png",
+      "10_function_acr_db.png",
+      "11_scripts.png"
+    ]
+  },
+  {
     "id": "data_pipeline_api",
     "title": "Creación de un Pipeline de Datos y API con Caché Inteligente",
     "description": "Solución integral de backend diseñada para la migración de datos a gran escala, exposición segura y optimizada a través de una API RESTful, y despliegue en un entorno de nube productivo. Incluye un sistema de monitoreo de rendimiento y una estrategia de caché inteligente con invalidación automática para asegurar la coherencia y eficiencia de los datos.",
@@ -34,6 +100,16 @@
       "Capa de Despliegue y Contenerización: Empaquetado y publicación de la aplicación en la nube."
     ],
     "visitLink": "/project/data_pipeline_api",
+    "repositories": [
+      {
+        "name": "API Pipeline (NestJs)",
+        "link": "https://github.com/jicastilloh/api_pipeline.git"
+      },
+      {
+        "name": "Definición de Infraestructura (Terraform)",
+        "link": "https://github.com/jicastilloh/resources_pipeline.git"
+      }
+    ],
     "images": [
       "saccount.png",
       "linked_services.png",
@@ -88,6 +164,20 @@
       "Capa de Analítica y BI: Consolidación y análisis de datos para la toma de decisiones."
     ],
     "visitLink": "/project/ecommerce_and_analytic",
+    "repositories": [
+      {
+        "name": "Infraestructura de Datos (Terraform)",
+        "link": "https://github.com/jicastilloh/se-data.git"
+      },
+      {
+        "name": "Infraestructura de WebApps (Terraform)",
+        "link": "https://github.com/jicastilloh/se-webapps.git"
+      },
+      {
+        "name": "Infraestructura de Analítica (Terraform)",
+        "link": "https://github.com/jicastilloh/se-analytics.git"
+      }
+    ],
     "images": [
       "ecommerce_and_analytic_infrastructure.jpg",
       "provides_and_rg.png",
@@ -131,6 +221,16 @@
       "Services: Servicios como ProductsService y CategoriesService para manejar la comunicación con la API REST."
     ],
     "visitLink": "https://jicastilloh.github.io/ecommerce/ecommerce",
+    "repositories": [
+      {
+        "name": "UI (Angular)",
+        "link": "https://github.com/jicastilloh/elearning-platform-frontend.git"
+      },
+      {
+        "name": "API (NestJs)",
+        "link": "https://github.com/jicastilloh/elearning-platform-backend.git"
+      }
+    ],
     "images": []
   }
 ]
