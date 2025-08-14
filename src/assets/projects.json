@@ -1,7 +1,7 @@
 [
   {
     "id": "report_generator_poke",
-    "title": "Generador de Reportes de Pokémons",
+    "title": "Arquitectura Serverless de Procesamiento Asíncrono en Azure",
     "description": "Desarrollo de aplicación web para la generación de reportes CSV. Permite a los usuarios solicitar y gestionar la creación de reportes basados en datos de una API externa (PokeAPI) y de un backofficce desarrollado con FastApi. La Azure Function se encarga de las tareas en segundo plano, como el enriquecimiento de datos y el muestreo aleatorio. La aplicación fue diseñada y desplegada en un entorno de nube.",
     "technologies": [
       "Next.js (React)",
