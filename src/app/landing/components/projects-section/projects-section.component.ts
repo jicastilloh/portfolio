@@ -1,17 +1,25 @@
 import { HttpClient } from '@angular/common/http';
-import { Component, signal } from '@angular/core';
+import { Component, computed, signal } from '@angular/core';
 import { ProjectInfo } from './interfaces/project.interface';
-import { NgClass, NgFor, NgIf } from '@angular/common';
+import { NgFor, NgIf } from '@angular/common';
+import { ScrollRevealDirective } from '../../../shared/directives/scroll-reveal.directive';
 
 @Component({
   selector: 'app-projects-section',
-  imports: [NgFor, NgClass, NgIf],
+  imports: [NgFor, NgIf, ScrollRevealDirective],
   templateUrl: './projects-section.component.html',
   styleUrl: './projects-section.css',
 })
 export class ProjectsSectionComponent {
   projects = signal<ProjectInfo[] | null>(null);
-  selectedProject: any = null; // Proyecto seleccionado
+  selectedProject: ProjectInfo | null = null;
+
+  featuredProjects = computed(
+    () => this.projects()?.filter((p) => p.featured) ?? []
+  );
+  secondaryProjects = computed(
+    () => this.projects()?.filter((p) => !p.featured) ?? []
+  );
 
   constructor(private http: HttpClient) {}
 
@@ -21,7 +29,7 @@ export class ProjectsSectionComponent {
     });
   }
 
-  openModal(project: any): void {
+  openModal(project: ProjectInfo): void {
     this.selectedProject = project;
     const modal: any = document.getElementById('modal_description');
     modal?.showModal();

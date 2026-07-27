@@ -1,26 +1,24 @@
-import { Component, inject, RESPONSE_INIT, signal } from '@angular/core';
+import { Component, inject, signal } from '@angular/core';
 import {
   FormBuilder,
   FormGroup,
   Validators,
   ReactiveFormsModule,
 } from '@angular/forms';
-import { HttpClient } from '@angular/common/http';
+import { NgClass } from '@angular/common';
+import emailjs from '@emailjs/browser';
 import { ContactFormUtils } from '../../../utils/contact-form-utils';
-
-interface Response {
-  message: string;
-}
+import { environment } from '../../../../environments/environment';
 
 @Component({
   selector: 'app-contact-section',
-  imports: [ReactiveFormsModule],
+  imports: [ReactiveFormsModule, NgClass],
   templateUrl: './contact-section.component.html',
 })
 export class ContactSectionComponent {
   private fb = inject(FormBuilder);
-  private http = inject(HttpClient);
 
+  isSending = signal<boolean>(false);
   messageSend = signal<boolean>(false);
   messageErrorSend = signal<boolean>(false);
 
@@ -30,47 +28,52 @@ export class ContactSectionComponent {
     name: ['', [Validators.required, Validators.minLength(3)]],
     email: ['', [Validators.required, Validators.email]],
     message: ['', [Validators.required, Validators.minLength(5)]],
+    // Campo honeypot: invisible para personas, si llega lleno se descarta como spam
+    botcheck: [''],
   });
 
   onSubmit() {
-    if (this.contactForm.valid) {
-      const formData = this.contactForm.value;
-      this.http
-        .post<Response>(
-          'https://my-web-site-backend.vercel.app/send-email',
-          formData
-        )
-        .subscribe(
-          (response) => {
-            // console.log(
-            //   'Message sent successfully',
-            //   JSON.stringify(response.message)
-            // );
-            this.messageSend.set(true);
-
-            // ocultando el alert despues de 3 segundos
-            setTimeout(() => {
-              this.messageSend.set(false);
-            }, 3000);
-          },
-          (error) => {
-            // console.error(
-            //   'Error sending message',
-            //   JSON.stringify(error['message'])
-            // );
-
-            this.messageErrorSend.set(true);
-            // ocultando el alert despues de 3 segundos
-            setTimeout(() => {
-              this.messageErrorSend.set(false);
-            }, 3000);
-          }
-        );
-    } else {
+    if (this.contactForm.invalid) {
       this.contactForm.markAllAsTouched();
       return;
     }
 
-    this.contactForm.reset({});
+    const { name, email, message, botcheck } = this.contactForm.value;
+
+    // Honeypot: si un bot rellenó este campo oculto, simulamos éxito sin enviar nada
+    if (botcheck) {
+      this.messageSend.set(true);
+      this.contactForm.reset();
+      this.hideAlertsAfterDelay();
+      return;
+    }
+
+    this.isSending.set(true);
+
+    emailjs
+      .send(
+        environment.emailJs.serviceId,
+        environment.emailJs.templateId,
+        { name, email, message },
+        { publicKey: environment.emailJs.publicKey }
+      )
+      .then(() => {
+        this.isSending.set(false);
+        this.messageSend.set(true);
+        this.contactForm.reset();
+        this.hideAlertsAfterDelay();
+      })
+      .catch(() => {
+        this.isSending.set(false);
+        this.messageErrorSend.set(true);
+        this.hideAlertsAfterDelay();
+      });
+  }
+
+  private hideAlertsAfterDelay() {
+    setTimeout(() => {
+      this.messageSend.set(false);
+      this.messageErrorSend.set(false);
+    }, 3000);
   }
 }

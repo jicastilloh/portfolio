@@ -1,13 +1,72 @@
 import { Component } from '@angular/core';
+import { NgFor, NgIf } from '@angular/common';
+import { ScrollRevealDirective } from '../../../shared/directives/scroll-reveal.directive';
+
+interface Skill {
+  name: string;
+  icon?: string;
+}
+
+interface SkillCategory {
+  label: string;
+  skills: Skill[];
+}
 
 @Component({
   selector: 'app-about-me-section',
-  imports: [],
+  imports: [NgFor, NgIf, ScrollRevealDirective],
   templateUrl: './about-me-section.component.html',
 })
 export class AboutMeSectionComponent {
-  icons = [
-    `<svg xmlns="http://www.w3.org/2000/svg" width="128" height="128" viewBox="0 0 128 128"><linearGradient id="deviconAngular0" x1="14.704" x2="110.985" y1="46.27" y2="92.024" gradientTransform="matrix(1 0 0 -1 0 130)" gradientUnits="userSpaceOnUse"><stop offset="0" stop-color="#e40035"/><stop offset=".24" stop-color="#f60a48"/><stop offset=".352" stop-color="#f20755"/><stop offset=".494" stop-color="#dc087d"/><stop offset=".745" stop-color="#9717e7"/><stop offset="1" stop-color="#6c00f5"/></linearGradient><path fill="url(#deviconAngular0)" d="m124.5 21.3l-4.4 68.6L78.3 0zm-29 88.7L64 128l-31.5-18l6.4-15.5h50.3zM64 34.1l16.5 40.2h-33zM7.9 89.9L3.5 21.3L49.7 0z"/><linearGradient id="deviconAngular1" x1="28.733" x2="91.742" y1="117.071" y2="45.195" gradientTransform="matrix(1 0 0 -1 0 130)" gradientUnits="userSpaceOnUse"><stop offset="0" stop-color="#ff31d9"/><stop offset="1" stop-color="#ff5be1" stop-opacity="0"/></linearGradient><path fill="url(#deviconAngular1)" d="m124.5 21.3l-4.4 68.6L78.3 0zm-29 88.7L64 128l-31.5-18l6.4-15.5h50.3zM64 34.1l16.5 40.2h-33zM7.9 89.9L3.5 21.3L49.7 0z"/></svg>`,
-    `<svg xmlns="http://www.w3.org/2000/svg" width="128" height="128" viewBox="0 0 128 128"><linearGradient id="deviconAngular0" x1="14.704" x2="110.985" y1="46.27" y2="92.024" gradientTransform="matrix(1 0 0 -1 0 130)" gradientUnits="userSpaceOnUse"><stop offset="0" stop-color="#e40035"/><stop offset=".24" stop-color="#f60a48"/><stop offset=".352" stop-color="#f20755"/><stop offset=".494" stop-color="#dc087d"/><stop offset=".745" stop-color="#9717e7"/><stop offset="1" stop-color="#6c00f5"/></linearGradient><path fill="url(#deviconAngular0)" d="m124.5 21.3l-4.4 68.6L78.3 0zm-29 88.7L64 128l-31.5-18l6.4-15.5h50.3zM64 34.1l16.5 40.2h-33zM7.9 89.9L3.5 21.3L49.7 0z"/><linearGradient id="deviconAngular1" x1="28.733" x2="91.742" y1="117.071" y2="45.195" gradientTransform="matrix(1 0 0 -1 0 130)" gradientUnits="userSpaceOnUse"><stop offset="0" stop-color="#ff31d9"/><stop offset="1" stop-color="#ff5be1" stop-opacity="0"/></linearGradient><path fill="url(#deviconAngular1)" d="m124.5 21.3l-4.4 68.6L78.3 0zm-29 88.7L64 128l-31.5-18l6.4-15.5h50.3zM64 34.1l16.5 40.2h-33zM7.9 89.9L3.5 21.3L49.7 0z"/></svg>`,
+  softSkills: string[] = [
+    'Autodidacta',
+    'Trabajo en equipo',
+    'Manejo de estrés',
+    'Comunicación efectiva',
+  ];
+
+  skillCategories: SkillCategory[] = [
+    {
+      label: 'Backend Development',
+      skills: [
+        { name: 'NestJS', icon: 'assets/devicon--nestjs.svg' },
+        { name: 'Node.js', icon: 'assets/devicon--nodejs-wordmark.svg' },
+        { name: 'TypeScript', icon: 'assets/skill-icons--typescript.svg' },
+        { name: 'FastAPI' },
+        { name: 'Python', icon: 'assets/material-icon-theme--python.svg' },
+        { name: 'API RESTful' },
+      ],
+    },
+    {
+      label: 'Cloud & DevOps',
+      skills: [
+        { name: 'Terraform' },
+        { name: 'Docker', icon: 'assets/material-icon-theme--docker.svg' },
+        { name: 'Serverless Architecture' },
+        { name: 'Azure' },
+        { name: 'Docker Compose' },
+      ],
+    },
+    {
+      label: 'Bases de Datos',
+      skills: [
+        { name: 'PostgreSQL', icon: 'assets/devicon--postgresql.svg' },
+        { name: 'SQL' },
+        { name: 'MongoDB' },
+      ],
+    },
+    {
+      label: 'Frontend & Otros',
+      skills: [
+        { name: 'Angular', icon: 'assets/devicon--angular.svg' },
+        { name: 'HTML', icon: 'assets/logos--html-5.svg' },
+        { name: 'CSS', icon: 'assets/logos--css-3.svg' },
+        { name: 'Power BI', icon: 'assets/logos--microsoft-power-bi.svg' },
+        {
+          name: 'Excel Power Pivot',
+          icon: 'assets/vscode-icons--file-type-excel.svg',
+        },
+      ],
+    },
   ];
 }

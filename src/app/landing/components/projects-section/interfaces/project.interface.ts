@@ -3,9 +3,9 @@ export interface ProjectInfo {
   title: string;
   description: string;
   technologies: string[];
-  features: string[];
-  structure: string[];
-  visitLink: string;
+  highlights: string[];
+  featured: boolean;
+  visitLink?: string;
   repositories: RepoInfo[];
   images: string[];
 }

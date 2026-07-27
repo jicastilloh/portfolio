@@ -1,4 +1,4 @@
-<div class="h-full md:h-screen px-5 md:px-20 content-center">
+<div class="py-16 md:py-24 px-5 md:px-20">
   <h1
     class="text-center md:text-left text-2xl sm:text-4xl md:text-5xl font-bold"
   >
@@ -7,29 +7,19 @@
   <hr
     class="w-24 md:w-48 h-1 my-4 mx-auto md:mx-0 bg-blue-500 border-0 rounded-sm md:my-5 dark:bg-blue-500"
   />
-  <div class="items-center grid grid-cols-1 md:grid-cols-2 gap-8">
-    <div
-      *ngFor="let project of projects(); let i = index"
-      [ngClass]="{
-        'col-start-1': i % 2 === 0,
-        'md:col-start-2': i % 2 !== 0
-      }"
-      class="justify-items-center"
-    >
+
+  <!-- Proyectos destacados -->
+  <div class="grid grid-cols-1 md:grid-cols-2 gap-8 mt-8">
+    <div *ngFor="let project of featuredProjects()" appScrollReveal>
       <div
-        class="hover:shadow-2xl hover:scale-110 transition-transform duration-300 border-t-2 border-blue-500 h-70 card w-[90%] bg-base-300 card-xs md:card-sm lg:card-md shadow-sm"
+        class="hover:shadow-2xl hover:scale-[1.03] hover:-translate-y-1 transition-all duration-500 ease-out border-t-2 border-blue-500 card min-h-64 bg-base-300 shadow-sm"
       >
-        <div class="card-body p-6 xl:p-8 items-center">
-          <div class="justify-items-start lg:justify-items-center">
-            <h2 class="card-title">
-              {{ project.title }}
-            </h2>
-            <hr
-              class="hidden lg:block w-24 h-1 my-4 mx-auto md:mx-0 bg-blue-500 border-0 rounded-sm md:my-5 dark:bg-blue-500"
-            />
-          </div>
-          <p>{{ project.description }}</p>
-          <div class="card-actions w-full grid grid-cols-2 gap-2">
+        <div class="card-body p-6 xl:p-8">
+          <h2 class="card-title text-lg md:text-xl">
+            {{ project.title }}
+          </h2>
+          <p class="text-sm md:text-base">{{ project.description }}</p>
+          <div class="card-actions w-full grid grid-cols-2 gap-2 mt-4">
             <button
               class="btn w-full hover:shadow-2xl transition-transform duration-300 hover:bg-blue-500 hover:text-base-100 hover:font-bold"
               (click)="openModal(project)"
@@ -37,12 +27,31 @@
               Descripción
             </button>
             <a
+              *ngIf="project.visitLink"
               [href]="project.visitLink"
-              
+              target="_blank"
               class="btn w-full hover:shadow-2xl transition-transform duration-300 hover:bg-blue-500 hover:text-base-100 hover:font-bold"
             >
               Visitar
             </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Otros proyectos -->
+  <div *ngIf="secondaryProjects().length" class="mt-16">
+    <h2 class="text-lg md:text-2xl font-bold opacity-80">Otros Proyectos</h2>
+    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 mt-6">
+      <div *ngFor="let project of secondaryProjects()" appScrollReveal>
+        <div
+          (click)="openModal(project)"
+          class="cursor-pointer hover:shadow-xl hover:scale-[1.03] hover:-translate-y-1 transition-all duration-500 ease-out border-t-2 border-blue-500/60 card bg-base-300/70 shadow-sm"
+        >
+          <div class="card-body p-5">
+            <h3 class="font-bold text-sm md:text-base">{{ project.title }}</h3>
+            <p class="text-xs md:text-sm opacity-80">{{ project.description }}</p>
           </div>
         </div>
       </div>
@@ -65,183 +74,42 @@
       <h1 class="text-xl font-bold">{{ selectedProject.title }}</h1>
       <p class="mt-2">{{ selectedProject.description }}</p>
 
-      <h2 class="text-lg font-bold mt-4">Tecnologías utilizadas</h2>
+      <div *ngIf="selectedProject.technologies.length">
+        <h2 class="text-lg font-bold mt-4">Tecnologías utilizadas</h2>
+        <ul class="list-disc ml-5">
+          <li *ngFor="let tech of selectedProject.technologies">
+            {{ tech }}
+          </li>
+        </ul>
+      </div>
+
+      <h2 class="text-lg font-bold mt-4">Detalles</h2>
       <ul class="list-disc ml-5">
-        <li *ngFor="let tech of selectedProject.technologies">
-          {{ tech }}
+        <li *ngFor="let highlight of selectedProject.highlights">
+          {{ highlight }}
         </li>
       </ul>
 
-      <h2 class="text-lg font-bold mt-4">Características principales</h2>
-      <ul class="list-disc ml-5">
-        <li *ngFor="let feature of selectedProject.features">
-          {{ feature }}
-        </li>
-      </ul>
-
-      <h2 class="text-lg font-bold mt-4">Estructura del proyecto</h2>
-      <ul class="list-disc ml-5">
-        <li *ngFor="let item of selectedProject.structure">
-          {{ item }}
-        </li>
-      </ul>
-
-      <h2 class="text-lg font-bold mt-4">Enlaces a repositorios</h2>
-      <ul class="list-disc ml-5">
-        <li *ngFor="let repo of selectedProject.repositories">
+      <div *ngIf="selectedProject.repositories.length">
+        <h2 class="text-lg font-bold mt-4">Enlaces a repositorios</h2>
+        <ul class="list-disc ml-5">
+          <li *ngFor="let repo of selectedProject.repositories">
             <a [href]="repo.link" target="_blank">
-            {{ repo.name }}
+              {{ repo.name }}
             </a>
-        </li>
-      </ul>
+          </li>
+        </ul>
+      </div>
+
+      <div *ngIf="selectedProject.visitLink" class="mt-4">
+        <a
+          [href]="selectedProject.visitLink"
+          target="_blank"
+          class="btn btn-sm hover:bg-blue-500 hover:text-base-100 hover:font-bold"
+        >
+          Visitar
+        </a>
+      </div>
     </section>
   </div>
 </dialog>
-
-<!-- Open the modal using ID.showModal() method -->
-<!-- <dialog id="modal_description" class="modal modal-bottom sm:modal-middle">
-  <div class="modal-box">
-    <form method="dialog">
-      <button class="btn btn-sm btn-circle btn-ghost absolute right-2 top-2">
-        ✕
-      </button>
-    </form>
-    <section>
-      <h2
-        style="
-          font-size: 1.5rem;
-          font-weight: bold;
-          margin-top: 2rem;
-          margin-bottom: 1rem;
-        "
-      >
-        Tecnologías utilizadas
-      </h2>
-      <ul
-        style="
-          font-size: 1rem;
-          line-height: 1.5;
-          margin-left: 1.5rem;
-          list-style-type: disc;
-        "
-      >
-        <li>
-          <strong>Angular</strong>: Framework principal para el desarrollo de la
-          aplicación.
-        </li>
-        <li>
-          <strong>RxJS</strong>: Utilizado para manejar flujos de datos
-          reactivos.
-        </li>
-        <li>
-          <strong>Tailwind CSS</strong>: Framework de diseño para estilos
-          responsivos y modernos.
-        </li>
-        <li>
-          <strong>DaisyUI</strong>: Extensión de Tailwind CSS para componentes
-          predefinidos.
-        </li>
-        <li>
-          <strong>API REST</strong>: Consumo de datos externos para productos y
-          categorías.
-        </li>
-        <li>
-          <strong>TypeScript</strong>: Lenguaje principal para el desarrollo,
-          proporcionando tipado estático.
-        </li>
-        <li>
-          <strong>HTML y CSS</strong>: Usados para la estructura y
-          personalización adicional del diseño.
-        </li>
-        <li>
-          <strong>Angular Signals</strong>: Utilizados para manejar estados
-          reactivos en el proyecto.
-        </li>
-      </ul>
-
-      <h2
-        style="
-          font-size: 1.5rem;
-          font-weight: bold;
-          margin-top: 2rem;
-          margin-bottom: 1rem;
-        "
-      >
-        Características principales
-      </h2>
-      <ul
-        style="
-          font-size: 1rem;
-          line-height: 1.5;
-          margin-left: 1.5rem;
-          list-style-type: disc;
-        "
-      >
-        <li>
-          <strong>Página de inicio</strong>: Muestra productos destacados y
-          categorías principales.
-        </li>
-        <li>
-          <strong>Navegación por categorías</strong>: Los usuarios pueden
-          filtrar productos por categorías específicas.
-        </li>
-        <li>
-          <strong>Paginación</strong>: Implementada para manejar grandes listas
-          de productos de manera eficiente.
-        </li>
-        <li>
-          <strong>Página de detalles del producto</strong>: Muestra información
-          detallada de un producto seleccionado.
-        </li>
-        <li>
-          <strong>Rutas dinámicas</strong>: Uso de parámetros en las rutas para
-          manejar la navegación hacia páginas específicas.
-        </li>
-        <li>
-          <strong>Diseño responsivo</strong>: Optimizado para dispositivos
-          móviles, tablets y pantallas grandes.
-        </li>
-      </ul>
-
-      <h2
-        style="
-          font-size: 1.5rem;
-          font-weight: bold;
-          margin-top: 2rem;
-          margin-bottom: 1rem;
-        "
-      >
-        Estructura del proyecto
-      </h2>
-      <ul
-        style="
-          font-size: 1rem;
-          line-height: 1.5;
-          margin-left: 1.5rem;
-          list-style-type: disc;
-        "
-      >
-        <li>
-          <strong>Layouts</strong>: Componentes compartidos como el encabezado,
-          pie de página y contenedores principales.
-        </li>
-        <li>
-          <strong>Pages</strong>: Componentes de páginas principales como
-          <code>ProductsPageComponent</code> y
-          <code>ProductInfoPageComponent</code>.
-        </li>
-        <li>
-          <strong>Components</strong>: Componentes reutilizables como
-          <code>CategoriesListComponent</code>,
-          <code>BestSellingProductsInfoComponent</code>, y
-          <code>CategoriesCardComponent</code>.
-        </li>
-        <li>
-          <strong>Services</strong>: Servicios como
-          <code>ProductsService</code> y <code>CategoriesService</code> para
-          manejar la comunicación con la API REST.
-        </li>
-      </ul>
-    </section>
-  </div>
-</dialog> -->

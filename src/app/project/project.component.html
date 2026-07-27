@@ -22,7 +22,7 @@
   </div>
 
   <!-- Tecnologías utilizadas -->
-  <div class="mb-10">
+  <div class="mb-10" *ngIf="selectedProject.technologies.length">
     <h2 class="text-2xl font-semibold mb-4">Tecnologías utilizadas</h2>
     <ul class="list-disc ml-5">
       <li *ngFor="let tech of selectedProject.technologies">
@@ -31,28 +31,18 @@
     </ul>
   </div>
 
-  <!-- Características principales -->
+  <!-- Detalles -->
   <div class="mb-10">
-    <h2 class="text-2xl font-semibold mb-4">Características principales</h2>
+    <h2 class="text-2xl font-semibold mb-4">Detalles</h2>
     <ul class="list-disc ml-5">
-      <li *ngFor="let feature of selectedProject.features">
-        {{ feature }}
-      </li>
-    </ul>
-  </div>
-
-  <!-- Estructura del proyecto -->
-  <div class="mb-10">
-    <h2 class="text-2xl font-semibold mb-4">Estructura del proyecto</h2>
-    <ul class="list-disc ml-5">
-      <li *ngFor="let item of selectedProject.structure">
-        {{ item }}
+      <li *ngFor="let highlight of selectedProject.highlights">
+        {{ highlight }}
       </li>
     </ul>
   </div>
 
   <!-- Enlaces a repositorios -->
-  <div class="mb-10">
+  <div class="mb-10" *ngIf="selectedProject.repositories.length">
     <h2 class="text-2xl font-semibold mb-4">Repositorios</h2>
     <ul class="list-disc ml-5">
       <li *ngFor="let repo of selectedProject.repositories">

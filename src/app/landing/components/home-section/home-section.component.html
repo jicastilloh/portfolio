@@ -10,15 +10,22 @@
         </h1> -->
         <h1 class="text-xs md:text-lg xl:text-xl font-thin">Convierto ideas en soluciones web y datos en decisiones estratégicas.</h1>
         <div class="flex gap-4 justify-center md:justify-start">
-            <button (click)="downloadCv()" class="hover:shadow-2xl hover:scale-110 transition-transform duration-300 bg-blue-500 text-base-100 hover:font-bold btn text-xs md:text-lg xl:text-xl w-28 md:w-40">
+            <button (click)="downloadCv()" class="hover:shadow-2xl hover:scale-110 transition-transform duration-300 bg-blue-500 text-base-100 hover:font-bold btn text-xs md:text-lg xl:text-xl whitespace-nowrap px-4 md:px-6">
                 Descargar CV
             </button>
-            <button (click)="contactSection()" class="hover:shadow-2xl hover:scale-110 transition-transform duration-300 hover:bg-blue-500 hover:text-base-100 hover:font-bold btn text-xs md:text-lg xl:text-xl w-28 md:w-40">
+            <button (click)="contactSection()" class="hover:shadow-2xl hover:scale-110 transition-transform duration-300 hover:bg-blue-500 hover:text-base-100 hover:font-bold btn text-xs md:text-lg xl:text-xl whitespace-nowrap px-4 md:px-6">
                 Contáctame
             </button>
         </div>
     </div>
     <div class="flex justify-center text-center">
-        <img class="hover:scale-110 transition-transform duration-300 w-60 sm:w-70 md:w-80 lg:w-100 xl:w-110 2xl:w-135 rounded-full border-4 border-blue-500" src="assets/FotoPerfil_JuniorCastillo.jpg" alt="">
+        <div class="relative">
+            <div class="absolute inset-0 rounded-full bg-blue-500/30 blur-3xl scale-90"></div>
+            <img
+                class="relative hover:scale-105 hover:shadow-2xl hover:shadow-blue-500/40 transition-all duration-500 ease-out w-48 sm:w-56 md:w-64 lg:w-72 xl:w-80 rounded-full border-4 border-blue-500 shadow-xl"
+                src="assets/FotoPerfil_JuniorCastillo.jpg"
+                alt="Junior Castillo"
+            />
+        </div>
     </div>
 </div>

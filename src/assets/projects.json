@@ -1,32 +1,29 @@
 [
   {
+    "id": "artefacto_agencia_digital",
+    "title": "Artefacto Agencia Digital",
+    "description": "Desarrollo y despliegue del portafolio web interactivo para un estudio creativo y agencia digital.",
+    "technologies": [],
+    "featured": true,
+    "highlights": [
+      "Implementación del sistema de filtrado dinámico para la navegación estructurada de trabajos por categorías (Catálogos, Empaques, Etiquetas).",
+      "Diseño responsivo y optimización de carga de recursos visuales y piezas de diseño de alta resolución.",
+      "Configuración completa del despliegue, enrutamiento y hosting bajo un subdominio propio personalizado."
+    ],
+    "visitLink": "https://artefacto.jcastillodev.com",
+    "repositories": [],
+    "images": []
+  },
+  {
     "id": "report_generator_poke",
     "title": "Arquitectura Serverless de Procesamiento Asíncrono en Azure",
-    "description": "Desarrollo de aplicación web para la generación de reportes CSV. Permite a los usuarios solicitar y gestionar la creación de reportes basados en datos de una API externa (PokeAPI) y de un backofficce desarrollado con FastApi. La Azure Function se encarga de las tareas en segundo plano, como el enriquecimiento de datos y el muestreo aleatorio. La aplicación fue diseñada y desplegada en un entorno de nube.",
-    "technologies": [
-      "Next.js (React)",
-      "FastAPI (Python)",
-      "Azure App Service",
-      "Azure Functions (Python Queue Trigger)",
-      "Azure SQL Database",
-      "Azure Blob Storage",
-      "Azure Queue Storage",
-      "PokeAPI",
-      "Terraform",
-      "Docker"
-    ],
-    "features": [
-      "Gestión Integral de Reportes: Implementación de una interfaz de usuario y un backend para la creación, visualización y eliminación completa de reportes, asegurando la consistencia entre la base de datos y el almacenamiento de archivos.",
-      "Enriquecimiento de Datos de Reporte: Capacidad para obtener y agregar información detallada (estadísticas y habilidades) de cada Pokémon a los reportes CSV, realizando llamadas dinámicas a la PokeAPI durante el proceso de generación.",
-      "Muestreo Aleatorio de Registros: Funcionalidad que permite a los usuarios especificar un tamaño de muestra para incluir un subconjunto aleatorio de datos en los reportes generados, optimizando la flexibilidad y el rendimiento."
-    ],
-    "structure": [
-      "Capa de Presentación (Frontend): Desarrollada con Next.js (React) para una interfaz de usuario moderna y reactiva, permitiendo a los usuarios interactuar con las funcionalidades del generador de reportes.",
-      "Capa de API (Backend): Construida con FastAPI en Python, desplegada en Azure App Service, que expone los endpoints para la creación, gestión y eliminación de reportes, y orquesta la lógica de negocio.",
-      "Capa de Procesamiento Asíncrono: Utiliza Azure Functions con un Queue Trigger para manejar la lógica intensiva de generación y enriquecimiento de reportes en segundo plano, desacoplando el proceso de la API principal.",
-      "Capa de Persistencia de Datos: Compuesta por Azure SQL Database para el almacenamiento estructurado de metadatos de reportes y Azure Blob Storage para el almacenamiento de los archivos CSV generados.",
-      "Capa de Mensajería: Implementación de Azure Queue Storage para la comunicación asíncrona entre la API y las Azure Functions, facilitando el procesamiento de tareas en cola.",
-      "Capa de Infraestructura como Código: Gestión y aprovisionamiento de todos los recursos de Azure mediante Terraform, asegurando la reproducibilidad y automatización del despliegue."
+    "description": "Arquitectura serverless robusta para procesamiento asíncrono de tareas con servicios Azure.",
+    "technologies": ["Next.js", "FastAPI", "Azure Functions", "Python", "Terraform"],
+    "featured": true,
+    "highlights": [
+      "Interfaz web con NextJS para generación de reportes procesados en segundo plano.",
+      "API con FastAPI, Azure Functions con Python y definición de infraestructura con Terraform.",
+      "Procesamiento asíncrono sin bloquear la experiencia del usuario."
     ],
     "visitLink": "/project/report_generator_poke",
     "repositories": [
@@ -67,37 +64,14 @@
   },
   {
     "id": "data_pipeline_api",
-    "title": "Creación de un Pipeline de Datos y API con Caché Inteligente",
-    "description": "Solución integral de backend diseñada para la migración de datos a gran escala, exposición segura y optimizada a través de una API RESTful, y despliegue en un entorno de nube productivo. Incluye un sistema de monitoreo de rendimiento y una estrategia de caché inteligente con invalidación automática para asegurar la coherencia y eficiencia de los datos.",
-    "technologies": [
-      "Azure Resource Group",
-      "Azure Storage Account",
-      "Azure Storage Container",
-      "Azure SQL Server",
-      "Azure SQL Database",
-      "Azure Data Factory",
-      "Azure Container Registry",
-      "Azure App Service Plan",
-      "Azure App Service",
-      "Azure Azure Insights",
-      "Azure Cache for Redis"
-    ],
-    "features": [
-      "Selección y Migración de Dataset desde Kaggle a Azure Blob Storage.",
-      "Pipeline ETL con Azure Data Factory para extraer, transformar y cargar datos a Azure SQL Database.",
-      "Desarrollo de API RESTful para interacción con la base de datos, incluyendo autenticación y autorización (JWT).",
-      "Implementación de un sistema de caché inteligente con Redis para optimizar el rendimiento de la API.",
-      "Monitoreo de rendimiento de la API y el caché con Azure Monitor.",
-      "Containerización de la aplicación API con Docker.",
-      "Despliegue de la aplicación en la nube utilizando Azure App Service a través de Azure Container Registry."
-    ],
-    "structure": [
-      "Capa de Transformación de Datos: Maneja la extracción y carga inicial de datos.",
-      "Capa de Persistencia de Datos: Almacenamiento de la base de datos transaccional.",
-      "Capa de API y Lógica de Negocio: Expone los datos y maneja las operaciones de la aplicación.",
-      "Capa de Caché: Optimización del acceso a datos para la API.",
-      "Capa de Monitoreo: Supervisión del rendimiento de la aplicación y el caché.",
-      "Capa de Despliegue y Contenerización: Empaquetado y publicación de la aplicación en la nube."
+    "title": "Pipeline de Datos y API con Caché Inteligente",
+    "description": "Solución integral de backend para migración de datos a gran escala con API RESTful optimizada.",
+    "technologies": ["NestJS", "Terraform"],
+    "featured": true,
+    "highlights": [
+      "Exposición segura de datos a través de API RESTful con NestJS.",
+      "Sistema de monitoreo de rendimiento y caché inteligente con invalidación automática.",
+      "Despliegue en entorno de nube productivo con Terraform."
     ],
     "visitLink": "/project/data_pipeline_api",
     "repositories": [
@@ -133,35 +107,14 @@
   },
   {
     "id": "ecommerce_and_analytic",
-    "title": "Infraestructura de E-Commerce y Analítica",
-    "description": "La arquitectura propuesta para la plataforma de e-commerce en Azure se ha diseñado con un enfoque en la escalabilidad, rendimiento y modularidad. Se basa en el uso de servicios gestionados de Azure. Se divide en capas lógicas que manejan la presentación, la lógica de negocio, la persistencia de datos, el procesamiento asíncrono y la inteligencia de negocio.",
-    "technologies": [
-      "Azure App Service Plan",
-      "Azure App Service",
-      "Azure PostgreSQL Server",
-      "Azure Blob Storage",
-      "Azure Service Bus Queue",
-      "Azure Functions",
-      "Azure SQL Data Warehouse",
-      "Azure Synapse Analytics",
-      "Azure Data Factory"
-    ],
-    "features": [
-      "Portal de Usuario (Frontoffice): UI principal para clientes, navegación de productos, proceso de compra, gestión de cuentas de usuario.",
-      "Portal de Administradores (Backoffice): UI administrativa para gestión de productos, inventario, pedidos y usuarios por personal interno.",
-      "API RESTful: Lógica de negocio, exposición de endpoints para interacción con servicios de datos, validación, autorización y lógica de negocio principal para transacciones.",
-      "Base de Datos Transaccional: Almacenamiento de datos operacionales y transaccionales en tiempo real (productos, pedidos, clientes).",
-      "Almacenamiento de Contenido Estático: Almacenamiento de archivos no estructurados y estáticos (imágenes, videos, documentos).",
-      "Procesamiento de Tareas en Segundo Plano: Ejecución de tareas intensivas o de larga duración sin bloquear la UI (confirmación de pedidos, actualización de inventarios, notificaciones masivas).",
-      "Datawarehouse para Analítica: Repositorio centralizado para análisis de grandes volúmenes de datos históricos y transaccionales, generación de informes.",
-      "Herramienta ETL: Gestión del flujo de datos (Extracción, Transformación y Carga) entre la base de datos transaccional y el Data Warehouse."
-    ],
-    "structure": [
-      "Capa de Presentación: Portal de Usuario (FrontOffice) y Portal de Backoffice.",
-      "Capa de Lógica de Negocio: API RESTful.",
-      "Capa de Datos Operacionales: Base de datos transaccional y almacenamiento de contenido estático.",
-      "Capa de Procesamiento Asíncrono: Servicios de mensajería y computación sin servidor para tareas en segundo plano.",
-      "Capa de Analítica y BI: Consolidación y análisis de datos para la toma de decisiones."
+    "title": "Infraestructura de E-Commerce y Analítica en Azure",
+    "description": "Arquitectura escalable para plataforma de e-commerce en Azure con enfoque en escalabilidad, rendimiento y modularidad.",
+    "technologies": ["Azure", "Terraform"],
+    "featured": true,
+    "highlights": [
+      "Diseño basado en servicios gestionados de Azure dividido en capas lógicas.",
+      "Implementación con Terraform para infraestructura de datos, webapps y analítica.",
+      "Manejo de presentación, lógica de negocio, persistencia de datos y procesamiento asíncrono."
     ],
     "visitLink": "/project/ecommerce_and_analytic",
     "repositories": [
@@ -193,44 +146,41 @@
     ]
   },
   {
-    "id": "ecommerce",
-    "title": "E-Commerce",
-    "description": "Este proyecto es una aplicación de comercio electrónico desarrollada con Angular, diseñada para ofrecer una experiencia de usuario moderna y responsiva. La aplicación incluye funcionalidades como la visualización de productos, navegación por categorías, y una página de detalles del producto.",
-    "technologies": [
-      "Angular",
-      "RxJS",
-      "Tailwind CSS",
-      "DaisyUI",
-      "API REST",
-      "TypeScript",
-      "HTML y CSS",
-      "Angular Signals"
+    "id": "data_analysis_project",
+    "title": "Proyecto de Análisis de Datos",
+    "description": "Análisis integral y optimización de información empresarial para la toma de decisiones.",
+    "technologies": ["PostgreSQL", "SQL", "Excel Power Pivot", "Power BI"],
+    "featured": false,
+    "highlights": [
+      "Proceso completo de exploración, preparación y análisis de datos.",
+      "Tecnologías utilizadas: PostgreSQL, SQL, Excel Power Pivot y Power BI."
     ],
-    "features": [
-      "Página de inicio: Muestra productos destacados y categorías principales.",
-      "Navegación por categorías: Los usuarios pueden filtrar productos por categorías específicas.",
-      "Paginación: Implementada para manejar grandes listas de productos de manera eficiente.",
-      "Página de detalles del producto: Muestra información detallada de un producto seleccionado.",
-      "Rutas dinámicas: Uso de parámetros en las rutas para manejar la navegación hacia páginas específicas.",
-      "Diseño responsivo: Optimizado para dispositivos móviles, tablets y pantallas grandes."
+    "repositories": [],
+    "images": []
+  },
+  {
+    "id": "store_performance_dashboard",
+    "title": "Dashboard de Rendimiento de Tienda",
+    "description": "Dashboard interactivo para presentar rendimiento histórico de tienda.",
+    "technologies": ["Power BI Desktop"],
+    "featured": false,
+    "highlights": [
+      "Desarrollo con Power BI Desktop basado en lista de requerimientos específicos."
     ],
-    "structure": [
-      "Layouts: Componentes compartidos como el encabezado, pie de página y contenedores principales.",
-      "Pages: Componentes de páginas principales como ProductsPageComponent y ProductInfoPageComponent.",
-      "Components: Componentes reutilizables como CategoriesListComponent, BestSellingProductsInfoComponent, y CategoriesCardComponent.",
-      "Services: Servicios como ProductsService y CategoriesService para manejar la comunicación con la API REST."
+    "repositories": [],
+    "images": []
+  },
+  {
+    "id": "html_tag_extractor",
+    "title": "Extractor de Etiquetas HTML",
+    "description": "Programa para análisis de archivos HTML con comunicación entre múltiples lenguajes.",
+    "technologies": ["Bash", "Python", "Lisp", "Prolog"],
+    "featured": false,
+    "highlights": [
+      "Implementación en Bash, Python, Lisp y Prolog.",
+      "Comunicación entre lenguajes mediante terminal y subprocesos."
     ],
-    "visitLink": "https://jicastilloh.github.io/ecommerce/ecommerce",
-    "repositories": [
-      {
-        "name": "UI (Angular)",
-        "link": "https://github.com/jicastilloh/elearning-platform-frontend.git"
-      },
-      {
-        "name": "API (NestJs)",
-        "link": "https://github.com/jicastilloh/elearning-platform-backend.git"
-      }
-    ],
+    "repositories": [],
     "images": []
   }
 ]

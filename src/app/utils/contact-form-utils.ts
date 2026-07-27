@@ -5,11 +5,11 @@ export class ContactFormUtils {
     for (const key of Object.keys(errors)) {
       switch (key) {
         case 'required':
-          return 'This field es required';
+          return 'Este campo es obligatorio';
         case 'email':
-          return 'Invalid email';
+          return 'Correo inválido';
         case 'minlength':
-          return `Minimum ${errors['minlength'].requiredLength} letters`;
+          return `Mínimo ${errors['minlength'].requiredLength} caracteres`;
       }
     }
 

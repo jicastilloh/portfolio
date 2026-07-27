@@ -9,7 +9,7 @@ import { Component } from '@angular/core';
 export class HomeSectionComponent {
   downloadCv() {
     window.location.href =
-      'https://drive.google.com/file/d/1mS97qc4G9qaWo8ZbGkscUBposjqpzq0h/view?usp=sharing';
+      'https://drive.google.com/file/d/1lbl_HNCjR_lzafQFRHbrDCH3vUynMkRv/view?usp=sharing';
   }
 
   contactSection() {

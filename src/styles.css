@@ -3,3 +3,32 @@
 @plugin "daisyui" {
     themes: sunset --default
 }
+
+body {
+  font-family: "Plus Jakarta Sans", ui-sans-serif, system-ui, sans-serif;
+}
+
+/* Compensa el navbar fijo al hacer scroll a los anchors (#aboutme, #projects, #contact) */
+html {
+  scroll-padding-top: 5rem;
+}
+
+/* Scroll-reveal: estado inicial oculto, la directiva agrega .in-view al entrar en el viewport */
+[appScrollReveal] {
+  opacity: 0;
+  transform: translateY(24px);
+  transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+}
+
+[appScrollReveal].in-view {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  [appScrollReveal] {
+    opacity: 1;
+    transform: none;
+    transition: none;
+  }
+}
